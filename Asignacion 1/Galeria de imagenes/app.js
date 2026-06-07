@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // --- SISTEMA DE PERSISTENCIA (Base de Datos Local) ---
 let globalStorage = {};
 try {
@@ -93,11 +94,35 @@ document.getElementById('profile-pic-input').addEventListener('change', function
             memoryStore.profilePic = event.target.result;
             saveToDatabase();
             loadProfilePic();
+=======
+const authSection = document.getElementById('auth-section');
+const gallerySection = document.getElementById('gallery-section');
+const imageGrid = document.getElementById('image-grid');
+
+// Simulación de Login
+document.getElementById('login-btn').addEventListener('click', () => {
+    const user = document.getElementById('username').value;
+    if(user) {
+        document.getElementById('user-display').innerText = user;
+        authSection.classList.add('hidden');
+        gallerySection.classList.remove('hidden');
+    }
+});
+
+// Manejo de subida de imágenes
+document.getElementById('upload-input').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            renderImage(event.target.result);
+>>>>>>> 4c97aa6fe719e6da53ab10abb7b55ba9d1bebf6d
         };
         reader.readAsDataURL(file);
     }
 });
 
+<<<<<<< HEAD
 function loadProfilePic() {
     const avatarImg = document.getElementById('user-avatar');
     if (memoryStore.profilePic) {
@@ -466,3 +491,20 @@ document.getElementById('delete-btn').onclick = () => {
         refreshCurrentView();
     }
 };
+=======
+function renderImage(src) {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'img-item';
+    
+    // Opción de descarga al hacer click
+    img.addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.href = src;
+        link.download = 'mi-galeria.png';
+        link.click();
+    });
+    
+    imageGrid.appendChild(img);
+}
+>>>>>>> 4c97aa6fe719e6da53ab10abb7b55ba9d1bebf6d

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Windows Gallery Ultra Pro</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -156,6 +157,34 @@
         <button id="modal-next-btn" class="nav-arrow right-arrow" onclick="navigateModal(1, event)">❯</button>
     </div>
 
+=======
+    <title>Glass Gallery Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <section id="auth-section" class="glass-card">
+            <h1>Bienvenido</h1>
+            <input type="text" id="username" placeholder="Usuario">
+            <button id="login-btn">Entrar a mi Galería</button>
+        </section>
+
+        <section id="gallery-section" class="glass-card hidden">
+            <header>
+                <h2>Mi Galería: <span id="user-display"></span></h2>
+                <button id="logout-btn">Salir</button>
+            </header>
+            
+            <div class="controls">
+                <input type="file" id="upload-input" accept="image/*">
+                <label for="upload-input" class="btn-upload">Subir Imagen</label>
+            </div>
+
+            <div id="image-grid" class="grid">
+                </div>
+        </section>
+    </div>
+>>>>>>> 4c97aa6fe719e6da53ab10abb7b55ba9d1bebf6d
     <script src="app.js"></script>
 </body>
 </html>
