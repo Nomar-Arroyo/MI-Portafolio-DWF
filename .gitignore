@@ -1,0 +1,10 @@
+# Omitir node_modules en cualquier subcarpeta
+node_modules/
+
+# Omitir carpetas de producción en cualquier subcarpeta
+dist/
+build/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
