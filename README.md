@@ -73,7 +73,7 @@ Mi-Portafolio-DWF/
 
 # 🚀 Desglose Técnico por Clase y Evaluación
 
-## 🏛️ Clase 01 — Portafolio Personal
+## 🏛️ Clase 01 — El Despertar del Arquitecto
 
 ### Competencias
 
@@ -173,6 +173,15 @@ array.map(item => (
   <Componente key={item.id} />
 ))
 ```
+
+## 🎨 Clase 06 — CLa IA genera código. Tú generas criterio.
+
+### Temas Abordados
+
+- El criterio del desarrollador
+- Vocabulario de patrones en React
+- Protocolo de diálogo con la IA
+- Auditoría y reporte de criterio:
 
 #### Desarrollo Asistido por IA
 
