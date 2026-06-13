@@ -1,0 +1,244 @@
+/* VARIABLES Y RESET */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-blur: blur(12px);
+    --text-color: #f5f5f7;
+    --accent-color: #0071e3;
+    --danger-color: #ff3b30;
+    --bg-gradient: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* UTILIDADES GLASS */
+.glass-container {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+/* PANTALLA LOGIN */
+.full-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.login-card {
+    width: 90%; max-width: 400px; text-align: center;
+}
+.login-card input {
+    width: 100%; padding: 12px; margin: 10px 0;
+    background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);
+    border-radius: 8px; color: #fff;
+}
+
+/* HEADER */
+.glass-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 5%; background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-border);
+}
+.user-menu { display: flex; align-items: center; gap: 15px; }
+.avatar-label {
+    position: relative; width: 45px; height: 45px;
+    border-radius: 50%; overflow: hidden; display: block; cursor: pointer;
+}
+#profile-img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-overlay {
+    position: absolute; bottom: 0; left: 0; width: 100%; font-size: 8px;
+    background: rgba(0,0,0,0.6); text-align: center; color: #fff; padding: 2px 0;
+}
+
+/* ESTRUCTURA PRINCIPAL (RESPONSIVE FIRST) */
+.main-layout {
+    display: flex; flex-direction: column; padding: 20px; gap: 20px;
+}
+@media (min-width: 768px) {
+    .main-layout { flex-direction: row; }
+    .glass-sidebar { width: 250px; flex-shrink: 0; }
+    .gallery-content { flex-grow: 1; }
+}
+
+/* SIDEBAR ALBUMES */
+.glass-sidebar {
+    background: rgba(255,255,255,0.03); border-radius: 16px; padding: 20px;
+    border: 1px solid var(--glass-border);
+}
+.glass-sidebar ul { list-style: none; margin: 15px 0; }
+.glass-sidebar li {
+    padding: 10px; margin-bottom: 8px; border-radius: 8px;
+    cursor: pointer; display: flex; justify-content: space-between; background: rgba(255,255,255,0.02);
+}
+.glass-sidebar li:hover { background: rgba(255,255,255,0.1); }
+.delete-album-btn { color: var(--danger-color); font-weight: bold; margin-left: 10px; }
+
+/* GRID DE IMÁGENES */
+.gallery-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px; margin: 20px 0;
+}
+@media (min-width: 480px) {
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+/* CONTENEDOR DE FOTO INDIVIDUAL */
+.photo-card {
+    position: relative; border-radius: 12px; overflow: hidden;
+    aspect-ratio: 1 / 1; border: 1px solid var(--glass-border);
+    cursor: pointer; transition: transform 0.2s;
+}
+.photo-card:hover { transform: scale(1.02); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* MENÚ FLOTANTE DE TRES PUNTOS */
+.photo-menu-trigger {
+    position: absolute; bottom: 8px; right: 8px;
+    width: 28px; height: 28px; background: rgba(0,0,0,0.7);
+    color: #fff; border: none; border-radius: 50%;
+    cursor: pointer; font-weight: bold; font-size: 14px;
+    display: flex; align-items: center; justify-content: center; z-index: 10;
+}
+.photo-dropdown {
+    position: absolute; bottom: 40px; right: 8px;
+    background: rgba(20, 20, 20, 0.95); border: 1px solid var(--glass-border);
+    border-radius: 8px; display: none; flex-direction: column; z-index: 20; overflow: hidden;
+}
+.photo-dropdown button {
+    background: none; border: none; color: #fff; padding: 10px 15px;
+    font-size: 12px; text-align: left; cursor: pointer; width: 100%;
+    display: flex; align-items: center;
+}
+.photo-dropdown button:hover { background: var(--accent-color); }
+
+/* CONTROLES EXTRA FORMULARIO DE SUBIDA */
+.upload-controls {
+    display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; align-items: center;
+}
+.upload-controls select {
+    padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);
+    border-radius: 8px; color: #fff;
+}
+.checkbox-label { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 14px; }
+
+/* MODAL DE IMAGEN */
+.modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); display: flex; justify-content: center;
+    align-items: center; z-index: 2000; padding: 20px;
+}
+.modal-content { max-width: 90%; width: auto; text-align: center; }
+#modal-img { max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); }
+.modal-actions { margin-top: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.close-modal {
+    position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px;
+    font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.close-modal:hover { color: var(--danger-color); }
+
+/* BOTONES GENERALES */
+.btn-primary { background: var(--accent-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
+.btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid var(--glass-border); padding: 8px 15px; border-radius: 8px; cursor: pointer; }
+.btn-add { background: var(--accent-color); color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-top: 5px; }
+.hidden { display: none !important; }
+.hidden-input { display: none; }
+
+/* ==========================================
+   AÑADIDOS: REFINAMIENTO ESTÉTICO GLASSMORPHISM
+   ========================================== */
+
+/* BOTONES ESTILO CÁPSULA GLASSMORPHISM */
+.btn-glass-capsule {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 50px; /* Forma de cápsula */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-glass-capsule:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px); /* Elevación interactiva fluida */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-glass-capsule.btn-danger {
+    background: rgba(255, 59, 48, 0.3);
+    border-color: rgba(255, 59, 48, 0.4);
+}
+.btn-glass-capsule.btn-danger:hover {
+    background: rgba(255, 59, 48, 0.5);
+    border-color: rgba(255, 59, 48, 0.6);
+}
+
+/* CONTENEDOR DE SUBIDA DE IMÁGENES MODERNO (Drag & Drop Visual) */
+.upload-container {
+    position: relative;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-container:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Esconder el input de archivo por defecto de forma limpia */
+.upload-container input[type="file"] {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.upload-text {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    display: block;
+}

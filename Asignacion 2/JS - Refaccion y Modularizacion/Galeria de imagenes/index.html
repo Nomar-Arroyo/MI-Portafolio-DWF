@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlassGallery - Tu Archivo Personal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/main.js" type="module"></script>
+</head>
+<body>
+
+    <div id="login-screen" class="login-full-page">
+        <div class="glow-orb orb-blue"></div>
+        <div class="glow-orb orb-purple"></div>
+
+        <div class="dark-neon-card">
+            <div class="card-header">
+                <h2>Iniciar Sesión</h2>
+                <p>Accede a tu Galeria Personal</p>
+            </div>
+            
+            <form id="login-form" class="neon-form">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" placeholder="Ingresa tu usuario" required autocomplete="off">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn-neon-primary">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-screen" class="hidden">
+        
+        <header class="glass-header">
+            <div class="logo">GlassGallery</div>
+            <nav class="user-menu">
+                <div class="profile-wrapper">
+                    <label for="profile-upload" class="avatar-label">
+                        <img id="profile-img" alt="Foto de perfil">
+                        <span class="avatar-overlay">Cambiar</span>
+                    </label>
+                    <input type="file" id="profile-upload" accept="image/*" class="hidden-input">
+                </div>
+                <span id="welcome-msg"></span>
+                <button id="logout-btn" class="btn-glass-capsule btn-danger">
+                    Cerrar Sesión
+                </button>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section class="control-panel glass-card">
+                <form id="upload-form" class="upload-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                    </svg>
+                    <p>Arrastra o selecciona tus imágenes</p>
+                    <input type="file" id="image-input" accept="image/*" multiple>
+                </form>
+
+                <div class="album-management">
+                    <div class="select-wrapper">
+                        <label for="select-album">Álbum Actual:</label>
+                        <select id="select-album" class="btn-glass-capsule"></select>
+                    </div>
+                    
+                    <form id="album-form" class="actions-group">
+                        <input type="text" id="new-album-name" placeholder="Nombre del nuevo álbum" required class="btn-glass-capsule" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 8px 12px; color: white; border-radius: 50px;">
+                        <button type="submit" id="create-album-btn" class="btn-glass-capsule">+ Crear</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <h3>✨ Momentos Destacados</h3>
+                <div id="moments-grid" class="photo-grid"></div> 
+            </section>
+
+            <section class="gallery-section">
+                <h3>🖼️ Tu Biblioteca</h3>
+                <div id="gallery-grid" class="photo-grid"></div> 
+            </section>
+
+    <div id="image-modal" class="modal-overlay hidden">
+        <button id="close-modal" class="close-modal">&times;</button>
+        
+        <div class="modal-content glass-card">
+            <div class="modal-image-wrapper">
+                <img id="modal-img" src="" alt="Vista ampliada">
+                <div id="modal-counter" class="modal-counter">0 / 0</div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="modal-download" class="btn-glass-capsule">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    Descargar
+                </button>
+                <button id="modal-share" class="btn-glass-capsule">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+                    </svg>
+                    Compartir
+                </button>
+                <button id="modal-delete" class="btn-glass-capsule btn-danger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                    </svg>
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

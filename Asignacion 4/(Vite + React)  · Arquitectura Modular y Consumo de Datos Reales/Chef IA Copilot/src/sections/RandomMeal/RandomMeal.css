@@ -1,0 +1,50 @@
+.random-meal-section {
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.section-intro h2 {
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.section-intro p {
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.btn-random {
+  background: var(--primary);
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(230, 92, 0, 0.3);
+  transition: var(--transition);
+}
+
+.btn-random:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: scale(1.03);
+}
+
+.btn-random:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.random-result-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.single-card-focused {
+  width: 100%;
+  max-width: 550px;
+}

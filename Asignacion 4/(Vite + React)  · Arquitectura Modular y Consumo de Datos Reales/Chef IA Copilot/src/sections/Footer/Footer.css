@@ -1,0 +1,15 @@
+.main-footer {
+  background: var(--secondary);
+  color: #a0a5c1;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 80px;
+  font-size: 0.9rem;
+  border-top: 3px solid #1e2030;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

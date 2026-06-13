@@ -1,0 +1,185 @@
+.recipe-view-container, 
+.recipe-view-container * {
+  box-sizing: border-box;
+}
+
+/* Contenedor principal adaptable */
+.recipe-view-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--card-bg, #ffffff);
+  border-radius: var(--border-radius, 12px);
+  box-shadow: var(--shadow, 0 4px 15px rgba(0, 0, 0, 0.05));
+  overflow: hidden;
+}
+
+.btn-back-home {
+  background-color: var(--secondary, #2b2d42);
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: var(--transition, all 0.3s ease);
+}
+
+.btn-back-home:hover {
+  background-color: var(--primary, #e65c00);
+}
+
+.recipe-header {
+  margin-bottom: 25px;
+}
+
+.recipe-main-title {
+  font-size: 2.2rem;
+  color: var(--secondary, #2b2d42);
+  margin-bottom: 5px;
+}
+
+/* Diseño de Rejilla: 2 columnas en PC, 1 columna en teléfonos */
+.recipe-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+/* 🌟 SOLUCIÓN AL DESCUADRE DE LA IMAGEN GENERADA */
+/* Contenedor elástico controlado para recortar la imagen en la previsualización */
+.recipe-image-wrapper {
+  width: 100%;
+  height: 280px;          /* Altura fija ideal para que luzca como banner recortado */
+  border-radius: 12px;
+  overflow: hidden;       /* Recorta todo lo que se salga de los 280px */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Comportamiento de la imagen dentro de su envoltura */
+.recipe-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Recorta la comida por arriba y abajo manteniéndola centrada */
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto sutil al pasar el mouse */
+.recipe-image-wrapper:hover .recipe-main-img {
+  transform: scale(1.02);
+}
+
+.ingredients-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredients-list li {
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 1.05rem;
+}
+
+.recipe-steps-box {
+  background: #fdfbf7;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid var(--primary, #e65c00);
+}
+
+/* ✨ NUEVOS ESTILOS PARA LA LISTA DE PASOS INTEGRADOS AQUÍ */
+.recipe-steps-list {
+  list-style: none; /* Quitamos los números por defecto del navegador */
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-step-item {
+  margin-bottom: 18px; /* Espaciado cómodo entre cada paso */
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.recipe-step-item:last-child {
+  margin-bottom: 0; /* Evita espacio extra al final del contenedor */
+}
+
+.recipe-step-item strong {
+  color: var(--primary, #e65c00); /* Color llamativo coordinado con tu borde izquierdo */
+  display: block;  /* Hace que el texto del paso empiece en una línea nueva abajo */
+  margin-bottom: 4px;
+  font-size: 1.15rem;
+}
+
+/* Estados de carga de traducción */
+.translation-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #666;
+}
+
+.mini-spinner {
+  border: 3px solid rgba(0,0,0,0.1);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border-left-color: var(--primary, #e65c00);
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 10px;
+}
+
+.btn-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ff0000; /* Rojo corporativo de YouTube */
+  color: #ffffff !important;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-youtube:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   📱 MEDIA QUERIES: AJUSTE RESPONSIVO CRÍTICO PARA TELÉFONOS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .recipe-grid-layout {
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 15px;
+  }
+
+  /* ✨ AQUÍ HACEMOS EL RECORTE EN CELULARES */
+  .recipe-image-wrapper {
+    /* 1. Reducimos la altura considerablemente (de 350px a 200px) */
+    height: 200px; 
+    
+    /* 2. Aseguramos que ocupe todo el ancho disponible */
+    max-width: 100%;
+    
+    /* Mantenemos el redondeo de bordes */
+    border-radius: 12px;
+  }
+  
+  /* Reducimos ligeramente los textos para pantallas pequeñas */
+  .recipe-main-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+}

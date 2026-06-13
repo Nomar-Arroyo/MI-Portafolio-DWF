@@ -11,28 +11,28 @@ export const asignacionesData = [
     id: 2,
     tag: "Asignación 02",
     title: "JavaScript Avanzado y Modular",
-    description: "Uso avanzado de funciones, modularización de código, manejo de eventos complejos y estructuración interactiva.",
+    description: "Refaccion y uso avanzado de funciones, modularización de código, manejo de eventos complejos y estructuración interactiva.",
     path: "./Asignacion-02/index.html"
   },
   {
     id: 3,
     tag: "Asignación 03",
-    title: "Portafolio Web con React y Vite",
+    title: "Integracion Web con React y Vite",
     description: "Interfaz dinámica y escalable utilizando componentes reactivos, Hooks y despliegue automatizado en entornos reales.",
     path: "./Asignacion-03/index.html" // Cambia esta ruta por la carpeta real de tu sub-proyecto si aplica
   },
   {
     id: 4,
     tag: "Asignación 04",
-    title: "Componentes Avanzados y Estado",
+    title: "Creacion de Landing Page",
     description: "Manejo de estados complejos, ciclo de vida de componentes y comunicación bidireccional efectiva en React.",
     path: "./Asignacion-04/index.html" // Ajusta el nombre exacto de tu carpeta
   },
   {
     id: 5,
     tag: "Asignación 05",
-    title: "Proyecto Integrador Final",
-    description: "Consolidación de arquitecturas frontend modernas uniendo diseño responsivo, lógica modular y despliegue continuo.",
+    title: "Reporte y Auditoria con Criterio",
+    description: "Generacion de Criterio y entendimiento siguiendo lógica modular e implementacion de herramientas.",
     path: "./Asignacion-05/index.html" // Ajusta el nombre exacto de tu carpeta
-  }
+  },
 ];
