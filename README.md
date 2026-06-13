@@ -51,19 +51,19 @@ Mi-Portafolio-DWF/
 │   └── Documentación técnica general
 │
 ├── 📁 Asignacion-01/
-│   └── Interactividad con JavaScript Vanilla
+│   └── JS - Estructura Monolitica
 │
 ├── 📁 Asignacion-02/
-│   └── Refactorización mediante ES6 Modules
+│   └── JS - Refaccion y Modularizacion
 │
 ├── 📁 Asignacion-03/
-│   └── Introducción al ecosistema React
+│   └── (Vite + React) - Landing de producto
 │
 ├── 📁 Asignacion-04/
-│   └── Porfundizacion en el entorno de React
+│   └── (Vite + React)  · Arquitectura Modular y Consumo de Datos Reales
 │
 ├── 📁 Asignacion-05/
-│   └── Creacion de Solucion Vite = React
+│   └── Reporte de criterio Asignación 4
 │
 └── 📁 dist/
     └── Build optimizado para producción
