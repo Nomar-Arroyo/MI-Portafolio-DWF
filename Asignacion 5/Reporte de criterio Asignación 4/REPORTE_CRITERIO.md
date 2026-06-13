@@ -50,6 +50,7 @@ src/
 │   ├── IngredientFilter/
 │   └── RandomMeal/
 └── App.jsx              # Coordinador de estados principales
+```
 
 Acciones Técnicas Concretas:
 
@@ -74,6 +75,7 @@ A continuación se presenta el código resultante tras la auditoría técnica im
 
 Nueva Capa de Servicio: src/services/translation.js
 
+```text
 JavaScript
 
 // Servicio puro aislado de la capa visual de React
@@ -116,10 +118,11 @@ export const traducirTextoLargo = async (textoOriginal) => {
 
   return resultadoTraducido.join(" ");
 };
-
+```
 
 UI Refactorizada: src/components/RecipeView/RecipeView.jsx
 
+```text
 JavaScript
 
 import React, { useState, useEffect } from 'react';
@@ -243,6 +246,7 @@ const RecipeView = ({ meal, onBack }) => {
 };
 
 export default RecipeView;
+```
 
 5. CONCLUSIÓN DE CRITERIO TÉCNICO
 
