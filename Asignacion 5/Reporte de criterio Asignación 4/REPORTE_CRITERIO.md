@@ -1,10 +1,5 @@
 # 📋 Reporte de Criterio y Auditoría de Código
 
-![Proyecto](https://img.shields.io/badge/Proyecto-Chef%20IA%20Copilot-brightgreen)
-![React](https://img.shields.io/badge/Framework-React-61DAFB)
-![Arquitectura](https://img.shields.io/badge/Arquitectura-Layered%20Architecture-blue)
-![Auditoría](https://img.shields.io/badge/Proceso-Code%20Audit-orange)
-
 > Documento técnico de análisis arquitectónico, auditoría de código y refactorización aplicada al proyecto **Chef IA Copilot**.
 
 ---
@@ -41,6 +36,7 @@ Estructura de Componentes: La separación física de archivos en components/ y s
 2. PLAN DE REFACTORIZACIÓN (Arquitectura en Capas)
 Para mitigar los anti-patrones y aislar las responsabilidades, se establece el siguiente plan de diseño técnico estructurado:
 
+```text
 src/
 ├── components/          # Componentes atómicos puramente visuales (UI)
 │   ├── MealCard/
@@ -49,7 +45,8 @@ src/
 ├── services/            # CAPA DE DATOS PURA (Aislada de React)
 │   └── translation.js   # Lógica de traducción y procesamiento de textos largos
 ├── sections/            # Bloques macro de la interfaz de usuario
-│   ├── Header/ | Footer/
+│   ├── Header/ 
+│   ├── Footer/
 │   ├── IngredientFilter/
 │   └── RandomMeal/
 └── App.jsx              # Coordinador de estados principales
